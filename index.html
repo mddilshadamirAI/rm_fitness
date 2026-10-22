@@ -1,2315 +1,1896 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sunflower Hair & Beauty Salon | Park Street, Kolkata</title>
-
-<meta name="description"
-content="Sunflower Hair and Beauty Salon at Russel Street, Park Street, Kolkata. Professional haircuts, global colouring, highlights, keratin, facials, bridal services, skincare and more.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* =========================================================
-   SUNFLOWER HAIR & BEAUTY SALON
-   PREMIUM SINGLE FILE WEBSITE
-========================================================= */
-
-:root{
-    --black:#0d0c0b;
-    --black2:#151311;
-    --cream:#f8f3ea;
-    --cream2:#efe7da;
-    --gold:#d6ad67;
-    --gold2:#f0cf91;
-    --muted:#aaa39a;
-    --white:#ffffff;
-    --border:rgba(255,255,255,.11);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:var(--black);
-    color:var(--cream);
-    font-family:"DM Sans",sans-serif;
-    overflow-x:hidden;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-button{
-    font-family:inherit;
-}
-
-/* =========================================================
-   LOADER
-========================================================= */
-
-.loader{
-    position:fixed;
-    inset:0;
-    background:#090807;
-    z-index:9999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:opacity .8s ease,visibility .8s ease;
-}
-
-.loader.hide{
-    opacity:0;
-    visibility:hidden;
-}
-
-.loader-inner{
-    text-align:center;
-}
-
-.loader-flower{
-    font-size:55px;
-    color:var(--gold);
-    animation:spin 2s linear infinite;
-}
-
-.loader-title{
-    margin-top:15px;
-    font-family:"Playfair Display",serif;
-    letter-spacing:5px;
-    font-size:18px;
-}
-
-@keyframes spin{
-    to{transform:rotate(360deg);}
-}
-
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
-
-.cursor-glow{
-    position:fixed;
-    width:350px;
-    height:350px;
-    border-radius:50%;
-    background:radial-gradient(circle,
-        rgba(214,173,103,.12),
-        transparent 65%);
-    transform:translate(-50%,-50%);
-    pointer-events:none;
-    z-index:0;
-}
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:82px;
-    z-index:1000;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 6%;
-    transition:.4s ease;
-}
-
-.navbar.scrolled{
-    background:rgba(13,12,11,.88);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--border);
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.logo-flower{
-    font-size:28px;
-    color:var(--gold);
-}
-
-.logo-text{
-    line-height:1;
-}
-
-.logo-main{
-    font-family:"Playfair Display",serif;
-    font-size:22px;
-    letter-spacing:3px;
-}
-
-.logo-sub{
-    font-size:8px;
-    letter-spacing:4px;
-    color:var(--gold);
-    margin-top:5px;
-}
-
-.nav-links{
-    display:flex;
-    gap:32px;
-    align-items:center;
-}
-
-.nav-links a{
-    font-size:12px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:#d5d0c8;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--gold);
-}
-
-.nav-btn{
-    padding:12px 20px;
-    border:1px solid var(--gold);
-    color:var(--gold)!important;
-}
-
-.menu{
-    display:none;
-    font-size:27px;
-    cursor:pointer;
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-    min-height:100vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-    background:
-    linear-gradient(90deg,
-        rgba(8,7,6,.97) 0%,
-        rgba(8,7,6,.82) 40%,
-        rgba(8,7,6,.25) 75%,
-        rgba(8,7,6,.55) 100%),
-    url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2200&q=90")
-    center/cover;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        180deg,
-        rgba(0,0,0,.2),
-        transparent 50%,
-        #0d0c0b 100%
-    );
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    width:min(900px,88%);
-    margin-left:8%;
-    padding-top:70px;
-}
-
-.eyebrow{
-    color:var(--gold);
-    font-size:12px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(60px,9vw,130px);
-    font-weight:400;
-    line-height:.88;
-    letter-spacing:-5px;
-}
-
-.hero h1 span{
-    color:var(--gold);
-    font-style:italic;
-}
-
-.hero-description{
-    max-width:570px;
-    margin-top:35px;
-    color:#d0cbc2;
-    font-size:16px;
-    line-height:1.8;
-}
-
-.hero-actions{
-    display:flex;
-    gap:15px;
-    margin-top:38px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:16px 27px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    font-size:11px;
-    font-weight:600;
-    transition:.35s;
-    cursor:pointer;
-}
-
-.btn-gold{
-    background:var(--gold);
-    color:#17130d;
-}
-
-.btn-gold:hover{
-    background:var(--gold2);
-    transform:translateY(-4px);
-    box-shadow:0 15px 40px rgba(214,173,103,.2);
-}
-
-.btn-outline{
-    border:1px solid rgba(255,255,255,.3);
-    color:white;
-}
-
-.btn-outline:hover{
-    border-color:var(--gold);
-    color:var(--gold);
-    transform:translateY(-4px);
-}
-
-/* Floating 3D sphere */
-
-.hero-orb{
-    position:absolute;
-    right:8%;
-    top:23%;
-    width:230px;
-    height:230px;
-    border-radius:50%;
-    background:
-    radial-gradient(circle at 30% 25%,
-        #f3d99d,
-        #b48746 35%,
-        #51381d 65%,
-        #17120c 100%);
-    box-shadow:
-    0 0 70px rgba(214,173,103,.2),
-    inset -30px -30px 60px rgba(0,0,0,.4);
-    opacity:.7;
-    animation:float 6s ease-in-out infinite;
-}
-
-.hero-orb::before{
-    content:"";
-    position:absolute;
-    inset:-25px;
-    border:1px solid rgba(214,173,103,.25);
-    border-radius:50%;
-    transform:rotateX(65deg);
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0) rotate(0);}
-    50%{transform:translateY(-25px) rotate(8deg);}
-}
-
-.scroll-indicator{
-    position:absolute;
-    bottom:35px;
-    left:8%;
-    z-index:3;
-    display:flex;
-    gap:12px;
-    align-items:center;
-    color:#aaa;
-    font-size:9px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-}
-
-.scroll-line{
-    width:55px;
-    height:1px;
-    background:var(--gold);
-}
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-section{
-    position:relative;
-    padding:120px 7%;
-}
-
-.section-label{
-    color:var(--gold);
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:4px;
-    margin-bottom:20px;
-}
-
-.section-title{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(42px,5vw,70px);
-    font-weight:400;
-    line-height:1.05;
-}
-
-.section-title span{
-    color:var(--gold);
-    font-style:italic;
-}
-
-.section-text{
-    color:#aaa39a;
-    line-height:1.9;
-    max-width:650px;
-    margin-top:25px;
-}
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.intro{
-    background:var(--cream);
-    color:#181513;
-}
-
-.intro-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
-    align-items:center;
-}
-
-.intro .section-label{
-    color:#987337;
-}
-
-.intro .section-text{
-    color:#655f57;
-}
-
-.intro-image{
-    height:600px;
-    position:relative;
-    overflow:hidden;
-}
-
-.intro-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:1s;
-}
-
-.intro-image:hover img{
-    transform:scale(1.06);
-}
-
-.image-frame{
-    position:absolute;
-    inset:20px;
-    border:1px solid rgba(214,173,103,.6);
-    pointer-events:none;
-}
-
-.intro-card{
-    position:absolute;
-    bottom:-1px;
-    right:-1px;
-    background:#11100e;
-    color:white;
-    padding:30px;
-    width:230px;
-}
-
-.intro-card strong{
-    display:block;
-    font-family:"Playfair Display",serif;
-    font-size:40px;
-    color:var(--gold);
-}
-
-.intro-card small{
-    color:#aaa;
-}
-
-/* =========================================================
-   SERVICES
-========================================================= */
-
-.services{
-    background:
-    radial-gradient(circle at 10% 30%,rgba(214,173,103,.06),transparent 25%),
-    #0d0c0b;
-}
-
-.service-grid{
-    margin-top:65px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.service-card{
-    min-height:280px;
-    padding:30px;
-    border:1px solid var(--border);
-    background:linear-gradient(145deg,#181613,#0d0c0b);
-    position:relative;
-    overflow:hidden;
-    transition:.5s;
-    transform-style:preserve-3d;
-}
-
-.service-card:hover{
-    transform:translateY(-12px) rotateX(3deg) rotateY(-3deg);
-    border-color:rgba(214,173,103,.5);
-    box-shadow:0 30px 70px rgba(0,0,0,.4);
-}
-
-.service-number{
-    color:#5e574e;
-    font-size:12px;
-}
-
-.service-icon{
-    font-size:42px;
-    margin-top:45px;
-    filter:grayscale(1);
-}
-
-.service-card h3{
-    font-family:"Playfair Display",serif;
-    font-size:24px;
-    font-weight:400;
-    margin-top:25px;
-}
-
-.service-card p{
-    color:#817a71;
-    font-size:12px;
-    line-height:1.6;
-    margin-top:10px;
-}
-
-.service-glow{
-    position:absolute;
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    background:rgba(214,173,103,.08);
-    filter:blur(30px);
-    right:-30px;
-    bottom:-30px;
-}
-
-/* =========================================================
-   FEATURE
-========================================================= */
-
-.feature{
-    min-height:650px;
-    display:flex;
-    align-items:center;
-    background:
-    linear-gradient(90deg,
-        #0d0c0b 10%,
-        rgba(13,12,11,.65),
-        rgba(13,12,11,.1)),
-    url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=2200&q=90")
-    center/cover;
-}
-
-.feature-content{
-    max-width:650px;
-}
-
-.feature h2{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(45px,6vw,85px);
-    font-weight:400;
-}
-
-.feature h2 span{
-    color:var(--gold);
-}
-
-.feature p{
-    margin-top:25px;
-    line-height:1.8;
-    color:#c3bdb4;
-}
-
-/* =========================================================
-   STATISTICS
-========================================================= */
-
-.stats{
-    background:var(--cream);
-    color:#181513;
-    padding-top:70px;
-    padding-bottom:70px;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    text-align:center;
-}
-
-.stat{
-    border-right:1px solid #d8cdbd;
-}
-
-.stat:last-child{
-    border:0;
-}
-
-.stat strong{
-    display:block;
-    font-family:"Playfair Display",serif;
-    font-size:55px;
-    font-weight:400;
-    color:#8c682e;
-}
-
-.stat span{
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#70695f;
-}
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-.gallery{
-    background:#11100f;
-}
-
-.gallery-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    gap:30px;
-}
-
-.gallery-grid{
-    margin-top:55px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    grid-auto-rows:250px;
-    gap:12px;
-}
-
-.gallery-item{
-    overflow:hidden;
-    position:relative;
-}
-
-.gallery-item:nth-child(1){
-    grid-column:span 2;
-    grid-row:span 2;
-}
-
-.gallery-item:nth-child(4){
-    grid-column:span 2;
-}
-
-.gallery-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:1s;
-    filter:saturate(.85);
-}
-
-.gallery-item:hover img{
-    transform:scale(1.08);
-    filter:saturate(1.1);
-}
-
-.gallery-overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:end;
-    padding:25px;
-    background:linear-gradient(transparent,rgba(0,0,0,.75));
-    opacity:0;
-    transition:.4s;
-}
-
-.gallery-item:hover .gallery-overlay{
-    opacity:1;
-}
-
-.gallery-overlay span{
-    color:var(--gold);
-    font-size:11px;
-    letter-spacing:2px;
-}
-
-/* =========================================================
-   BRIDAL
-========================================================= */
-
-.bridal{
-    background:var(--cream);
-    color:#181513;
-}
-
-.bridal-grid{
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:80px;
-    align-items:center;
-}
-
-.bridal-image{
-    height:650px;
-    overflow:hidden;
-}
-
-.bridal-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.bridal .section-label{
-    color:#987337;
-}
-
-.bridal .section-text{
-    color:#665f56;
-}
-
-.bridal-list{
-    margin-top:35px;
-    display:grid;
-    gap:15px;
-}
-
-.bridal-list div{
-    border-bottom:1px solid #d9cdbc;
-    padding-bottom:15px;
-    display:flex;
-    justify-content:space-between;
-    font-size:13px;
-}
-
-.bridal-list span{
-    color:#977137;
-}
-
-/* =========================================================
-   REVIEWS
-========================================================= */
-
-.reviews{
-    background:#0d0c0b;
-    text-align:center;
-}
-
-.rating{
-    color:var(--gold);
-    font-size:35px;
-    letter-spacing:5px;
-    margin-top:35px;
-}
-
-.rating-text{
-    color:#999;
-    margin-top:10px;
-}
-
-.review-card{
-    max-width:800px;
-    margin:55px auto 0;
-    border:1px solid var(--border);
-    padding:55px;
-    background:#12110f;
-}
-
-.review-quote{
-    font-family:"Playfair Display",serif;
-    font-size:27px;
-    line-height:1.6;
-    color:#ddd5ca;
-}
-
-.review-source{
-    margin-top:30px;
-    font-size:10px;
-    color:var(--gold);
-    letter-spacing:3px;
-    text-transform:uppercase;
-}
-
-/* =========================================================
-   LOCATION
-========================================================= */
-
-.location{
-    background:#151311;
-}
-
-.location-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-}
-
-.location-card{
-    margin-top:40px;
-    display:grid;
-    gap:20px;
-}
-
-.location-row{
-    display:flex;
-    gap:18px;
-    align-items:flex-start;
-    padding-bottom:20px;
-    border-bottom:1px solid var(--border);
-}
-
-.location-icon{
-    font-size:22px;
-    color:var(--gold);
-}
-
-.location-row strong{
-    display:block;
-    margin-bottom:5px;
-}
-
-.location-row span{
-    color:#938c83;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.map{
-    min-height:470px;
-    border:1px solid var(--border);
-    position:relative;
-    overflow:hidden;
-    background:
-    linear-gradient(rgba(20,18,15,.5),rgba(20,18,15,.8)),
-    url("https://maps.googleapis.com/maps/api/staticmap?center=Russel+Street,+Kolkata&zoom=15&size=1000x700")
-    center/cover;
-}
-
-.map::before{
-    content:"";
-    position:absolute;
-    inset:20px;
-    border:1px solid rgba(214,173,103,.3);
-}
-
-.map-pin{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    text-align:center;
-}
-
-.pin{
-    font-size:40px;
-}
-
-.map-pin strong{
-    display:block;
-    font-family:"Playfair Display",serif;
-    font-size:20px;
-}
-
-/* =========================================================
-   CTA
-========================================================= */
-
-.cta{
-    padding:150px 7%;
-    text-align:center;
-    background:
-    radial-gradient(circle at center,
-        rgba(214,173,103,.12),
-        transparent 40%),
-    #0b0a09;
-}
-
-.cta h2{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(50px,8vw,100px);
-    font-weight:400;
-    line-height:.95;
-}
-
-.cta h2 span{
-    color:var(--gold);
-    font-style:italic;
-}
-
-.cta p{
-    color:#99928a;
-    margin:30px auto;
-    max-width:550px;
-    line-height:1.7;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-    background:#080706;
-    border-top:1px solid var(--border);
-    padding:60px 7% 30px;
-}
-
-.footer-top{
-    display:flex;
-    justify-content:space-between;
-    gap:40px;
-}
-
-.footer-brand{
-    max-width:350px;
-}
-
-.footer-brand p{
-    color:#777168;
-    font-size:13px;
-    line-height:1.7;
-    margin-top:20px;
-}
-
-.footer-links{
-    display:flex;
-    gap:60px;
-}
-
-.footer-column h4{
-    color:var(--gold);
-    font-size:10px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:20px;
-}
-
-.footer-column a{
-    display:block;
-    color:#888179;
-    font-size:12px;
-    margin-bottom:12px;
-    transition:.3s;
-}
-
-.footer-column a:hover{
-    color:white;
-}
-
-.footer-bottom{
-    border-top:1px solid var(--border);
-    margin-top:50px;
-    padding-top:25px;
-    display:flex;
-    justify-content:space-between;
-    color:#55504a;
-    font-size:10px;
-}
-
-/* =========================================================
-   FLOATING BUTTONS
-========================================================= */
-
-.floating-actions{
-    position:fixed;
-    right:20px;
-    bottom:25px;
-    z-index:900;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.float-btn{
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#171512;
-    border:1px solid rgba(214,173,103,.4);
-    color:var(--gold);
-    font-size:19px;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-    transition:.3s;
-}
-
-.float-btn:hover{
-    transform:scale(1.1);
-    background:var(--gold);
-    color:#111;
-}
-
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
-
-.reveal{
-    opacity:0;
-    transform:translateY(35px);
-    transition:1s ease;
-}
-
-.reveal.visible{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:1000px){
-
-    .nav-links{
-        position:fixed;
-        top:82px;
-        right:-100%;
-        width:280px;
-        height:calc(100vh - 82px);
-        background:#11100e;
-        flex-direction:column;
-        align-items:flex-start;
-        padding:40px;
-        transition:.4s;
-        border-left:1px solid var(--border);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0d0a">
+  <meta name="description" content="R.M Fitness, Meerut — commercial gym equipment manufacturing, customised fitness machinery, and complete gym setups with pan-India delivery.">
+  <title>R.M Fitness | Built for Serious Training</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0d0a;
+      --panel: #141914;
+      --panel2: #1c231c;
+      --lime: #c8ff3d;
+      --white: #f7f8f2;
+      --muted: #a4ada1;
+      --paper: #eff0e8;
+      --dark: #121610;
+      --line: rgba(255,255,255,.13);
+      --display: "Barlow Condensed", Impact, sans-serif;
+      --body: "DM Sans", Arial, sans-serif;
+      --width: 1240px;
     }
 
-    .nav-links.active{
-        right:0;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
-    .menu{
-        display:block;
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--body);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
 
-    .nav-btn{
-        display:none;
+    body.menu-open { overflow: hidden; }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { max-width: 100%; display: block; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    ::selection { background: var(--lime); color: var(--bg); }
+
+    .container {
+      width: min(var(--width), calc(100% - 48px));
+      margin-inline: auto;
     }
 
-    .hero-orb{
-        width:150px;
-        height:150px;
-        right:4%;
-        top:18%;
-        opacity:.4;
+    .section { padding: 105px 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--lime);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
     }
 
-    .intro-grid,
-    .bridal-grid,
-    .location-grid{
-        grid-template-columns:1fr;
-        gap:45px;
+    .eyebrow::before {
+      content: "";
+      height: 2px;
+      width: 25px;
+      background: var(--lime);
     }
 
-    .service-grid{
-        grid-template-columns:repeat(2,1fr);
+    .section-title {
+      font: 800 clamp(48px, 7vw, 84px)/.92 var(--display);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin: 15px 0 20px;
     }
 
-    .gallery-grid{
-        grid-template-columns:repeat(2,1fr);
+    .section-title span { color: var(--lime); }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 530px;
+      font-size: 15px;
     }
 
-    .stats-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:30px;
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 42px;
     }
 
-    .stat:nth-child(2){
-        border:0;
+    .btn {
+      min-height: 52px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 0 24px;
+      background: var(--lime);
+      color: var(--bg);
+      border: 1px solid var(--lime);
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      transition: .25s ease;
     }
 
-    .footer-top{
-        flex-direction:column;
+    .btn:hover {
+      background: #e0ff9a;
+      border-color: #e0ff9a;
+      transform: translateY(-3px);
     }
 
-}
-
-@media(max-width:600px){
-
-    section{
-        padding:85px 5%;
+    .btn-outline {
+      color: white;
+      background: transparent;
+      border-color: rgba(255,255,255,.4);
     }
 
-    .navbar{
-        height:70px;
-        padding:0 5%;
+    .btn-outline:hover {
+      color: var(--bg);
+      background: white;
+      border-color: white;
     }
 
-    .logo-main{
-        font-size:17px;
+    .btn-dark {
+      background: var(--bg);
+      border-color: var(--bg);
+      color: white;
     }
 
-    .logo-sub{
-        font-size:6px;
+    /* NAVIGATION */
+
+    .header {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.14);
     }
 
-    .nav-links{
-        top:70px;
-        height:calc(100vh - 70px);
+    .nav {
+      min-height: 84px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
     }
 
-    .hero{
-        min-height:100svh;
-        background-position:62% center;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
-    .hero-content{
-        margin-left:5%;
-        width:90%;
-        padding-top:40px;
+    .brand-symbol {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: var(--lime);
+      color: var(--bg);
+      font: 900 22px var(--display);
+      clip-path: polygon(0 0,100% 0,100% 75%,75% 100%,0 100%);
     }
 
-    .hero h1{
-        font-size:64px;
-        letter-spacing:-3px;
+    .brand-name {
+      font: 800 28px/.9 var(--display);
+      letter-spacing: .4px;
     }
 
-    .hero-description{
-        font-size:14px;
+    .brand-caption {
+      display: block;
+      color: #b3bdb1;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-top: 7px;
     }
 
-    .hero-orb{
-        width:100px;
-        height:100px;
-        top:18%;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
     }
 
-    .scroll-indicator{
-        left:5%;
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 700;
+      color: #e0e5dc;
+      transition: color .2s;
     }
 
-    .intro-image,
-    .bridal-image{
-        height:430px;
+    .nav-links a:hover { color: var(--lime); }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-size: 25px;
     }
 
-    .service-grid{
-        grid-template-columns:1fr;
+    /* HERO */
+
+    .hero {
+      min-height: 760px;
+      min-height: min(900px, 100svh);
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 145px 0 110px;
+      background: #111611;
     }
 
-    .service-card{
-        min-height:240px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      background: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=85") center 45%/cover no-repeat;
+      animation: heroZoom 16s ease-in-out infinite alternate;
     }
 
-    .feature{
-        min-height:550px;
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5,8,5,.96), rgba(5,8,5,.77) 43%, rgba(5,8,5,.2)),
+        linear-gradient(0deg, rgba(5,8,5,.85), transparent 55%);
     }
 
-    .gallery-head{
-        display:block;
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.07); }
     }
 
-    .gallery-grid{
-        grid-template-columns:1fr 1fr;
-        grid-auto-rows:170px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) 190px;
+      gap: 45px;
+      align-items: end;
     }
 
-    .gallery-item:nth-child(1){
-        grid-column:span 2;
-        grid-row:span 2;
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(10,13,10,.6);
+      border: 1px solid rgba(200,255,61,.42);
+      color: #e5ffb1;
+      padding: 9px 13px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
     }
 
-    .gallery-item:nth-child(4){
-        grid-column:span 2;
+    .hero-label span {
+      width: 7px;
+      height: 7px;
+      background: var(--lime);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(200,255,61,.13);
     }
 
-    .stats{
-        padding:60px 5%;
+    .hero h1 {
+      max-width: 850px;
+      margin: 30px 0 23px;
+      font: 900 clamp(64px, 10.5vw, 142px)/.77 var(--display);
+      letter-spacing: -2px;
+      text-transform: uppercase;
     }
 
-    .stats-grid{
-        grid-template-columns:1fr 1fr;
+    .hero h1 span { display: block; }
+    .hero .outline {
+      color: transparent;
+      -webkit-text-stroke: 1.5px white;
+    }
+    .hero .highlight { color: var(--lime); }
+
+    .hero-description {
+      color: #d0d7ce;
+      max-width: 520px;
+      font-size: 16px;
+      margin: 28px 0 30px;
     }
 
-    .stat strong{
-        font-size:40px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .review-card{
-        padding:30px 20px;
+    .hero-aside {
+      border-left: 1px solid rgba(255,255,255,.4);
+      padding-left: 22px;
+      margin-bottom: 7px;
     }
 
-    .review-quote{
-        font-size:21px;
+    .hero-aside strong {
+      color: var(--lime);
+      display: block;
+      font: 800 36px/1 var(--display);
     }
 
-    .map{
-        min-height:350px;
+    .hero-aside p {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1.4px;
+      line-height: 1.8;
+      margin-top: 9px;
+      color: #e0e4db;
     }
 
-    .footer-links{
-        gap:35px;
-        flex-wrap:wrap;
+    .hero-aside hr {
+      border: none;
+      width: 40px;
+      height: 2px;
+      background: var(--lime);
+      margin: 25px 0;
     }
 
-    .footer-bottom{
-        flex-direction:column;
-        gap:10px;
+    .hero-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid rgba(255,255,255,.18);
     }
 
-}
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation:none!important;
-        transition:none!important;
-        scroll-behavior:auto!important;
+    .hero-bottom-inner {
+      min-height: 65px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: #e1e4dd;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
 
-}
+    .hero-bottom span { color: var(--lime); }
 
-</style>
+    /* MOVING STRIP */
+
+    .ticker {
+      background: var(--lime);
+      color: var(--bg);
+      overflow: hidden;
+    }
+
+    .ticker-track {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 18px 30px;
+      padding: 18px 24px;
+      font: 800 22px/1 var(--display);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .ticker-track span::after {
+      content: " ✳";
+      margin-left: 18px;
+    }
+
+    /* EQUIPMENT */
+
+    .equipment {
+      background: var(--paper);
+      color: var(--dark);
+    }
+
+    .equipment .eyebrow { color: #4d6815; }
+    .equipment .eyebrow::before { background: #4d6815; }
+    .equipment .section-description { color: #666e61; }
+
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .equipment-card {
+      min-height: 380px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: #cbd0c7;
+    }
+
+    .equipment-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: var(--image) center/cover no-repeat;
+      transition: transform .6s ease;
+    }
+
+    .equipment-card::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(3,6,4,.95), rgba(3,6,4,.32) 60%, rgba(3,6,4,.05));
+    }
+
+    .equipment-card:hover::before { transform: scale(1.08); }
+
+    .equipment-number {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      border: 1px solid rgba(255,255,255,.65);
+      padding: 6px 10px;
+      font: 700 19px var(--display);
+      color: white;
+    }
+
+    .equipment-content {
+      position: absolute;
+      left: 21px;
+      right: 18px;
+      bottom: 22px;
+      color: white;
+    }
+
+    .equipment-content h3 {
+      font: 700 35px/.95 var(--display);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .equipment-content p {
+      color: #d9dfd6;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .equipment-content a {
+      display: inline-block;
+      color: var(--lime);
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 15px;
+    }
+
+    /* ABOUT */
+
+    .about { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 590px;
+      position: relative;
+      background: url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1100&q=85") center/cover no-repeat;
+    }
+
+    .about-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(200,255,61,.25);
+      margin: 14px;
+      pointer-events: none;
+    }
+
+    .image-stamp {
+      position: absolute;
+      z-index: 2;
+      bottom: 28px;
+      left: 28px;
+      max-width: 245px;
+      background: var(--lime);
+      color: var(--bg);
+      padding: 23px;
+    }
+
+    .image-stamp strong {
+      display: block;
+      font: 800 35px/.95 var(--display);
+      text-transform: uppercase;
+    }
+
+    .image-stamp span {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+
+    .about-copy > p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 19px 0;
+    }
+
+    .feature-list { margin-top: 26px; }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      border-top: 1px solid var(--line);
+      padding: 19px 0;
+    }
+
+    .feature-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 38px;
+      height: 38px;
+      background: rgba(200,255,61,.1);
+      color: var(--lime);
+      font-size: 18px;
+    }
+
+    .feature h3 { font-size: 14px; margin-bottom: 3px; }
+    .feature p { color: var(--muted); font-size: 12px; }
+
+    /* PROCESS / CAPABILITIES */
+
+    .benefits {
+      background: var(--lime);
+      color: var(--bg);
+      padding: 45px 0;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 25px;
+    }
+
+    .benefit {
+      border-left: 1px solid rgba(10,13,10,.3);
+      padding-left: 20px;
+    }
+
+    .benefit strong {
+      display: block;
+      font: 800 30px/1.1 var(--display);
+      text-transform: uppercase;
+    }
+
+    .benefit p {
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    /* PACKAGES */
+
+    .packages { background: var(--paper); color: var(--dark); }
+
+    .packages .eyebrow { color: #4d6815; }
+    .packages .eyebrow::before { background: #4d6815; }
+    .packages .section-description { color: #666e61; }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .package {
+      background: #fff;
+      border: 1px solid #d8ddd1;
+      padding: clamp(26px,4vw,48px);
+      display: flex;
+      flex-direction: column;
+      min-height: 410px;
+    }
+
+    .package.featured {
+      background: var(--panel);
+      color: white;
+      border-color: var(--panel);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .package-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .package-type {
+      font-size: 10px;
+      font-weight: 900;
+      color: #697360;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .featured .package-type { color: var(--lime); }
+
+    .popular {
+      background: var(--lime);
+      color: var(--bg);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 7px 10px;
+      text-transform: uppercase;
+    }
+
+    .package h3 {
+      font: 800 clamp(38px,5vw,63px)/.9 var(--display);
+      text-transform: uppercase;
+      margin: 38px 0 14px;
+    }
+
+    .package > p {
+      color: #6b7167;
+      font-size: 13px;
+      margin-bottom: 23px;
+      max-width: 430px;
+    }
+
+    .featured > p { color: #b5bdb0; }
+
+    .price {
+      font: 800 clamp(43px,5vw,64px)/1 var(--display);
+      margin-bottom: 8px;
+    }
+
+    .price small {
+      font: 700 11px var(--body);
+      color: #737b6d;
+    }
+
+    .featured .price small { color: #b5bdb0; }
+
+    .package-note {
+      color: #858b7e;
+      font-size: 11px;
+      margin-bottom: 25px;
+    }
+
+    .package .btn {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .package-disclaimer {
+      font-size: 11px;
+      color: #72786b;
+      margin-top: 17px;
+    }
+
+    /* CUSTOMISATION */
+
+    .custom {
+      position: relative;
+      overflow: hidden;
+      background: #131913;
+    }
+
+    .custom::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1900&q=80") center/cover no-repeat;
+      opacity: .18;
+    }
+
+    .custom-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr .8fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .custom h2 {
+      font: 900 clamp(55px,8vw,100px)/.83 var(--display);
+      text-transform: uppercase;
+      margin: 18px 0 25px;
+    }
+
+    .custom h2 span { color: var(--lime); }
+
+    .custom-copy > p {
+      max-width: 550px;
+      color: #bac3b7;
+      font-size: 14px;
+    }
+
+    .color-options {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin: 25px 0 30px;
+    }
+
+    .swatch {
+      width: 31px;
+      height: 31px;
+      border: 2px solid rgba(255,255,255,.4);
+      border-radius: 50%;
+    }
+
+    .swatch-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #e4e9df;
+    }
+
+    .custom-panel {
+      background: rgba(7,11,7,.78);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 30px;
+      backdrop-filter: blur(12px);
+    }
+
+    .custom-panel small {
+      color: var(--lime);
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .custom-panel h3 {
+      font: 700 36px/.95 var(--display);
+      text-transform: uppercase;
+      margin: 13px 0 22px;
+    }
+
+    .custom-panel ul { list-style: none; }
+
+    .custom-panel li {
+      border-top: 1px solid var(--line);
+      padding: 14px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      color: #e3e8df;
+      font-size: 12px;
+    }
+
+    .custom-panel li span { color: var(--lime); }
+
+    /* HOW IT WORKS */
+
+    .process {
+      background: var(--paper);
+      color: var(--dark);
+    }
+
+    .process .eyebrow { color: #4d6815; }
+    .process .eyebrow::before { background: #4d6815; }
+    .process .section-description { color: #626a5f; }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      border: 1px solid #cbd0c4;
+    }
+
+    .process-step {
+      padding: 30px;
+      min-height: 245px;
+      border-right: 1px solid #cbd0c4;
+    }
+
+    .process-step:last-child { border-right: 0; }
+
+    .step-top {
+      display: flex;
+      justify-content: space-between;
+      color: #68715f;
+      font: 700 19px var(--display);
+    }
+
+    .step-top span { color: #3e5812; }
+
+    .process-step h3 {
+      font: 700 33px/.95 var(--display);
+      text-transform: uppercase;
+      margin: 48px 0 12px;
+    }
+
+    .process-step p {
+      color: #687064;
+      font-size: 12px;
+    }
+
+    /* FAQ */
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 75px;
+      align-items: start;
+    }
+
+    .faq-intro p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 15px 0;
+    }
+
+    .faq-list { border-top: 1px solid var(--line); }
+
+    .faq-list details { border-bottom: 1px solid var(--line); }
+
+    .faq-list summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      cursor: pointer;
+      padding: 21px 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .faq-list summary::-webkit-details-marker { display: none; }
+
+    .faq-list summary span {
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(200,255,61,.5);
+      color: var(--lime);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: .2s;
+    }
+
+    .faq-list details[open] summary span {
+      background: var(--lime);
+      color: var(--bg);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 0 40px 22px 0;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: var(--lime);
+      color: var(--bg);
+      padding: 85px 0 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 65px;
+      padding-bottom: 75px;
+    }
+
+    .contact .eyebrow { color: #40551c; }
+    .contact .eyebrow::before { background: #40551c; }
+
+    .contact h2 {
+      font: 900 clamp(63px,9vw,115px)/.8 var(--display);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin: 20px 0 24px;
+    }
+
+    .contact h2 span {
+      display: block;
+      color: white;
+      -webkit-text-stroke: 1px var(--bg);
+    }
+
+    .contact-copy > p {
+      color: #3e4d2a;
+      max-width: 500px;
+      font-size: 14px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .contact-details {
+      border-top: 1px solid rgba(10,13,10,.28);
+    }
+
+    .contact-detail {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 15px;
+      padding: 19px 0;
+      border-bottom: 1px solid rgba(10,13,10,.28);
+    }
+
+    .detail-icon {
+      border: 1px solid rgba(10,13,10,.5);
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+
+    .detail-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .detail-value {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    a.detail-value:hover { text-decoration: underline; }
+
+    .map {
+      height: 320px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(10,13,10,.25);
+      background: #dce3ca;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) contrast(.94);
+      mix-blend-mode: multiply;
+    }
+
+    .map-label {
+      position: absolute;
+      bottom: 18px;
+      left: max(24px, calc((100% - var(--width))/2));
+      background: var(--bg);
+      color: white;
+      padding: 13px 17px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #070907;
+      color: white;
+    }
+
+    .footer-main {
+      padding: 35px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .footer-main p {
+      font-size: 11px;
+      color: #8c9487;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: #d5dbd0;
+    }
+
+    .footer-links a:hover { color: var(--lime); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding: 17px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #879083;
+      font-size: 10px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 80;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lime);
+      color: var(--bg);
+      font-size: 29px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.4);
+      transition: .25s;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* TABLET */
+
+    @media (max-width: 1000px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 11px; }
+      .nav > .btn { display: none; }
+
+      .equipment-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .equipment-card { min-height: 400px; }
+      .about-grid { gap: 35px; }
+      .custom-grid { gap: 35px; }
+      .faq-grid { gap: 40px; }
+      .contact-grid { gap: 35px; }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+      .container { width: calc(100% - 36px); }
+      .section { padding: 75px 0; }
+
+      .nav { min-height: 72px; }
+      .brand-symbol { width: 39px; height: 39px; }
+      .brand-name { font-size: 25px; }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 72px 0 0;
+        height: calc(100dvh - 72px);
+        overflow-y: auto;
+        padding: 35px 25px;
+        background: #0a0d0a;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: .25s ease;
+      }
+
+      .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        font-size: 22px;
+        padding: 17px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links .mobile-contact {
+        display: block;
+        margin-top: 22px;
+        padding: 16px 20px;
+        text-align: center;
+        background: var(--lime);
+        color: var(--bg);
+        border: 0;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 760px;
+        min-height: 94svh;
+        padding: 125px 0 110px;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(90deg,rgba(5,8,5,.91),rgba(5,8,5,.55)),
+          linear-gradient(0deg,rgba(5,8,5,.88),transparent 60%);
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero h1 {
+        font-size: clamp(62px, 17vw, 105px);
+        letter-spacing: -1px;
+        line-height: .81;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-description { font-size: 14px; }
+      .hero-aside { display: none; }
+
+      .hero-actions .btn {
+        flex: 1 1 150px;
+        padding: 0 13px;
+        font-size: 10px;
+      }
+
+      .hero-bottom-inner {
+        min-height: 58px;
+        font-size: 9px;
+        gap: 10px;
+        letter-spacing: .4px;
+      }
+
+      .hero-bottom-inner > span:last-child { display: none; }
+
+      .ticker-track {
+        justify-content: flex-start;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        width: max-content;
+        animation: tickerMove 24s linear infinite;
+      }
+
+      @keyframes tickerMove {
+        to { transform: translateX(-25%); }
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 28px;
+      }
+
+      .section-title { font-size: clamp(49px,14vw,73px); }
+
+      .equipment-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .equipment-card { min-height: 285px; }
+      .equipment-number { top: 10px; left: 10px; }
+      .equipment-content { left: 13px; right: 12px; bottom: 15px; }
+      .equipment-content h3 { font-size: 25px; }
+      .equipment-content p { font-size: 11px; }
+      .equipment-content a { font-size: 10px; }
+
+      .about-grid,
+      .custom-grid,
+      .contact-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .about-image { min-height: 430px; }
+      .image-stamp { left: 18px; bottom: 18px; padding: 17px; }
+      .image-stamp strong { font-size: 29px; }
+
+      .benefit-grid { grid-template-columns: 1fr 1fr; gap: 25px 15px; }
+      .benefit strong { font-size: 26px; }
+      .benefit p { font-size: 10px; }
+
+      .package-grid { grid-template-columns: 1fr; }
+      .package { min-height: 380px; padding: 28px 23px; }
+      .package h3 { margin-top: 30px; }
+
+      .custom h2 { font-size: clamp(58px,15vw,84px); }
+      .custom-panel { padding: 23px; }
+
+      .process-grid { grid-template-columns: 1fr; }
+      .process-step {
+        min-height: auto;
+        padding: 24px;
+        border-right: 0;
+        border-bottom: 1px solid #cbd0c4;
+      }
+      .process-step:last-child { border-bottom: 0; }
+      .process-step h3 { margin-top: 27px; }
+
+      .faq-grid { gap: 28px; }
+      .faq-list summary { font-size: 13px; }
+
+      .contact { padding-top: 70px; }
+      .contact h2 { font-size: clamp(67px,16vw,100px); }
+      .contact-grid { padding-bottom: 45px; }
+      .map { height: 280px; }
+      .map-label { left: 18px; bottom: 15px; font-size: 9px; }
+
+      .footer-main { align-items: flex-start; flex-direction: column; }
+      .footer-links { gap: 15px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+
+      .whatsapp-float {
+        right: 15px;
+        bottom: 15px;
+        width: 53px;
+        height: 53px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container { width: calc(100% - 28px); }
+      .equipment-card { min-height: 260px; }
+      .equipment-content h3 { font-size: 22px; }
+      .brand-name { font-size: 23px; }
+      .hero h1 { font-size: 60px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="R.M Fitness home">
+        <span class="brand-symbol">RM</span>
+        <span>
+          <span class="brand-name">R.M FITNESS</span>
+          <span class="brand-caption">ENGINEERED TO PERFORM</span>
+        </span>
+      </a>
 
-<div class="loader" id="loader">
-    <div class="loader-inner">
-        <div class="loader-flower">✿</div>
-        <div class="loader-title">SUNFLOWER</div>
-    </div>
-</div>
-
-<!-- CURSOR -->
-
-<div class="cursor-glow" id="cursorGlow"></div>
-
-<!-- NAVBAR -->
-
-<header class="navbar" id="navbar">
-
-    <a href="#home" class="logo">
-
-        <div class="logo-flower">✿</div>
-
-        <div class="logo-text">
-            <div class="logo-main">SUNFLOWER</div>
-            <div class="logo-sub">HAIR & BEAUTY SALON</div>
-        </div>
-
-    </a>
-
-    <nav class="nav-links" id="navLinks">
-
+      <div class="nav-links" id="navLinks">
         <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#about">About Us</a>
+        <a href="#packages">Gym Packages</a>
+        <a href="#custom">Customisation</a>
+        <a href="#contact" class="mobile-contact">GET A QUOTE ↗</a>
+      </div>
 
+      <a class="btn" href="#contact">GET A QUOTE ↗</a>
+
+      <button class="menu-toggle" id="menuToggle"
+        type="button" aria-label="Open navigation menu"
+        aria-expanded="false" aria-controls="navLinks">☰</button>
     </nav>
+  </header>
 
-    <a class="btn nav-btn" href="tel:06290575304">
-        Call Now
-    </a>
+  <main>
 
-    <div class="menu" id="menu">☰</div>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-label"><span></span> COMMERCIAL FITNESS EQUIPMENT</div>
 
-</header>
+          <h1>
+            BUILT FOR
+            <span class="outline">SERIOUS</span>
+            <span class="highlight">TRAINING.</span>
+          </h1>
 
+          <p class="hero-description">
+            From powerful individual machines to complete commercial gym
+            setups, equip your fitness business with machinery built for
+            demanding training environments.
+          </p>
 
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content reveal">
-
-        <div class="eyebrow">
-            Park Street · Kolkata
+          <div class="hero-actions">
+            <a class="btn" href="#equipment">EXPLORE EQUIPMENT ↗</a>
+            <a class="btn btn-outline"
+              href="https://wa.me/919897229440?text=Hello%20R.M%20Fitness%2C%20I%20would%20like%20to%20discuss%20my%20gym%20equipment%20requirements."
+              target="_blank" rel="noopener">DISCUSS YOUR SETUP</a>
+          </div>
         </div>
 
-        <h1>
-            Beauty<br>
-            <span>Reimagined.</span>
-        </h1>
+        <aside class="hero-aside">
+          <strong>01 / 04</strong>
+          <p>Strength<br>Cardio<br>Customisation<br>Complete setups</p>
+          <hr>
+          <strong>INDIA</strong>
+          <p>Meerut-based<br>Pan-India reach</p>
+        </aside>
+      </div>
 
-        <p class="hero-description">
-            Welcome to Sunflower Hair & Beauty Salon — a professional
-            beauty destination where expert hair care, personalized
-            treatments and modern beauty services come together.
+      <div class="hero-bottom">
+        <div class="container hero-bottom-inner">
+          <span>● COMMERCIAL-GRADE EQUIPMENT</span>
+          <span>MEERUT, UTTAR PRADESH</span>
+          <span>BUILT AROUND YOUR BUSINESS ↘</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHT STRIP -->
+    <div class="ticker" aria-label="R.M Fitness services">
+      <div class="ticker-track">
+        <span>Strength Equipment</span>
+        <span>Commercial Setups</span>
+        <span>Custom Finishes</span>
+        <span>Pan-India Delivery</span>
+      </div>
+    </div>
+
+    <!-- EQUIPMENT -->
+    <section class="section equipment" id="equipment">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">THE EQUIPMENT</span>
+            <h2 class="section-title">YOUR GYM.<br><span>YOUR STANDARD.</span></h2>
+          </div>
+          <p class="section-description">
+            Explore equipment categories for commercial fitness spaces.
+            Contact R.M Fitness to confirm available models, dimensions,
+            specifications and current stock.
+          </p>
+        </div>
+
+        <div class="equipment-grid">
+
+          <article class="equipment-card" style="--image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80')">
+            <span class="equipment-number">01</span>
+            <div class="equipment-content">
+              <h3>Strength<br>Machines</h3>
+              <p>Build a versatile strength-training floor.</p>
+              <a href="#contact">ENQUIRE NOW ↗</a>
+            </div>
+          </article>
+
+          <article class="equipment-card" style="--image:url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80')">
+            <span class="equipment-number">02</span>
+            <div class="equipment-content">
+              <h3>Free<br>Weights</h3>
+              <p>Equipment for focused strength and conditioning.</p>
+              <a href="#contact">ENQUIRE NOW ↗</a>
+            </div>
+          </article>
+
+          <article class="equipment-card" style="--image:url('https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80')">
+            <span class="equipment-number">03</span>
+            <div class="equipment-content">
+              <h3>Cardio<br>Equipment</h3>
+              <p>Plan a balanced training experience for members.</p>
+              <a href="#contact">ENQUIRE NOW ↗</a>
+            </div>
+          </article>
+
+          <article class="equipment-card" style="--image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80')">
+            <span class="equipment-number">04</span>
+            <div class="equipment-content">
+              <h3>Complete<br>Gym Setup</h3>
+              <p>Discuss equipment combinations for your floor plan.</p>
+              <a href="#packages">VIEW PACKAGES ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="about-image reveal" role="img"
+          aria-label="Illustrative commercial fitness equipment photograph">
+          <div class="image-stamp">
+            <strong>POWER YOUR<br>VISION.</strong>
+            <span>For gyms that mean business.</span>
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <span class="eyebrow">ABOUT R.M FITNESS</span>
+          <h2 class="section-title">EQUIPPING<br><span>YOUR AMBITION.</span></h2>
+
+          <p>
+            Based in Meerut, Uttar Pradesh, R.M Fitness specialises in
+            commercial gym equipment manufacturing and complete fitness
+            facility setups.
+          </p>
+
+          <p>
+            Whether you're setting up your first gym, expanding an existing
+            facility or sourcing individual machines, start with a
+            conversation about your requirements.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature">
+              <span class="feature-icon">↗</span>
+              <div>
+                <h3>Commercial-Focused Equipment</h3>
+                <p>Explore machine options designed for commercial training spaces.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <span class="feature-icon">✳</span>
+              <div>
+                <h3>Customisation Options</h3>
+                <p>Ask about available frame colours, cushion finishes and specifications.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <span class="feature-icon">⌖</span>
+              <div>
+                <h3>Pan-India Enquiries</h3>
+                <p>Discuss delivery, installation availability and timelines for your city.</p>
+              </div>
+            </div>
+          </div>
+
+          <a class="btn" href="#contact">TALK TO THE TEAM ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits">
+      <div class="container benefit-grid">
+        <div class="benefit">
+          <strong>STRENGTH</strong>
+          <p>Commercial equipment solutions</p>
+        </div>
+        <div class="benefit">
+          <strong>YOUR VISION</strong>
+          <p>Equipment planning for your space</p>
+        </div>
+        <div class="benefit">
+          <strong>YOUR FINISH</strong>
+          <p>Ask about custom options</p>
+        </div>
+        <div class="benefit">
+          <strong>ACROSS INDIA</strong>
+          <p>Delivery and installation enquiries</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="section packages" id="packages">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">COMPLETE GYM SOLUTIONS</span>
+            <h2 class="section-title">START STRONG.<br><span>SCALE SMART.</span></h2>
+          </div>
+          <p class="section-description">
+            Planning a new fitness business? Explore the indicative package
+            references provided for this demonstration and request a current,
+            itemised quotation from R.M Fitness.
+          </p>
+        </div>
+
+        <div class="package-grid">
+
+          <article class="package reveal">
+            <div class="package-top">
+              <span class="package-type">Package 01</span>
+            </div>
+            <h3>Commercial<br>Gym Setup</h3>
+            <p>
+              A starting point for discussing a practical equipment
+              combination for a new fitness facility.
+            </p>
+            <div class="price">₹4.45 Lakh<small>* onwards reference</small></div>
+            <p class="package-note">
+              Final cost and inclusions must be confirmed directly.
+            </p>
+            <a class="btn btn-dark"
+              href="https://wa.me/919897229440?text=Hello%20R.M%20Fitness%2C%20please%20share%20the%20latest%20details%20of%20your%20commercial%20gym%20setup%20package."
+              target="_blank" rel="noopener">REQUEST PACKAGE DETAILS ↗</a>
+          </article>
+
+          <article class="package featured reveal">
+            <div class="package-top">
+              <span class="package-type">Package 02</span>
+              <span class="popular">Premium Series</span>
+            </div>
+            <h3>Royal Series<br>Setup</h3>
+            <p>
+              Discuss a more comprehensive equipment plan tailored to
+              the needs and positioning of your fitness business.
+            </p>
+            <div class="price">₹7.95 Lakh<small>* onwards reference</small></div>
+            <p class="package-note">
+              Confirm current price, machinery list and inclusions.
+            </p>
+            <a class="btn"
+              href="https://wa.me/919897229440?text=Hello%20R.M%20Fitness%2C%20I%20am%20interested%20in%20the%20Royal%20Series%20gym%20setup.%20Please%20share%20the%20latest%20quotation."
+              target="_blank" rel="noopener">ENQUIRE ABOUT ROYAL SERIES ↗</a>
+          </article>
+
+        </div>
+
+        <p class="package-disclaimer">
+          *Prices are indicative references supplied for this demo, not verified
+          live offers. Confirm the latest written quotation, equipment list,
+          taxes, transport, installation, warranty and other terms with R.M Fitness.
         </p>
+      </div>
+    </section>
 
-        <div class="hero-actions">
+    <!-- CUSTOMISATION -->
+    <section class="section custom" id="custom">
+      <div class="container custom-grid">
+        <div class="custom-copy reveal">
+          <span class="eyebrow">MAKE IT YOURS</span>
+          <h2>YOUR BRAND.<br><span>YOUR LOOK.</span></h2>
+          <p>
+            Your gym should reflect your identity. Discuss available frame
+            colours, cushion finishes, equipment specifications and other
+            customisation possibilities with the R.M Fitness team.
+          </p>
 
-            <a href="#services" class="btn btn-gold">
-                Explore Services →
-            </a>
+          <div class="color-options">
+            <span class="swatch" style="background:#151515"></span>
+            <span class="swatch" style="background:#c52525"></span>
+            <span class="swatch" style="background:#d9d9d9"></span>
+            <span class="swatch" style="background:#143f84"></span>
+            <span class="swatch-label">Ask about available finishes</span>
+          </div>
 
-            <a href="tel:06290575304" class="btn btn-outline">
-                Call Salon
-            </a>
-
+          <a class="btn"
+            href="https://wa.me/919897229440?text=Hello%20R.M%20Fitness%2C%20I%20would%20like%20to%20ask%20about%20custom%20frame%20and%20cushion%20colours%20for%20gym%20equipment."
+            target="_blank" rel="noopener">DISCUSS CUSTOMISATION ↗</a>
         </div>
 
-    </div>
+        <div class="custom-panel reveal">
+          <small>YOUR PROJECT / YOUR SPECIFICATIONS</small>
+          <h3>Plan the<br>details.</h3>
+          <ul>
+            <li>Frame colour options <span>↗</span></li>
+            <li>Cushion finish options <span>↗</span></li>
+            <li>Machine selection <span>↗</span></li>
+            <li>Equipment combinations <span>↗</span></li>
+            <li>Delivery and installation <span>↗</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <div class="hero-orb"></div>
-
-    <div class="scroll-indicator">
-        <div class="scroll-line"></div>
-        Scroll to explore
-    </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section class="intro" id="about">
-
-    <div class="intro-grid">
-
-        <div class="intro-image reveal">
-
-            <img
-            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=90"
-            alt="Premium salon interior">
-
-            <div class="image-frame"></div>
-
-            <div class="intro-card">
-
-                <strong>4.0★</strong>
-
-                <small>
-                    Rated by 156 customers
-                </small>
-
-            </div>
-
+    <!-- PROCESS -->
+    <section class="section process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">SIMPLE PROCESS</span>
+            <h2 class="section-title">FROM IDEA<br><span>TO YOUR GYM.</span></h2>
+          </div>
+          <p class="section-description">
+            Start with a few essential details so the team can understand
+            what you need and guide your next steps.
+          </p>
         </div>
 
-        <div class="reveal">
-
-            <div class="section-label">
-                The Sunflower Experience
-            </div>
-
-            <h2 class="section-title">
-                Your beauty.<br>
-                Your <span>signature.</span>
-            </h2>
-
-            <p class="section-text">
-                Sunflower Hair & Beauty Salon is a professional beauty
-                salon located in the heart of Park Street, Kolkata.
-                Our services are designed around personal care,
-                professional styling and beautiful results.
-            </p>
-
-            <p class="section-text">
-                From everyday haircuts and styling to advanced hair
-                treatments, skincare, facials and bridal beauty,
-                Sunflower brings multiple beauty experiences together
-                under one roof.
-            </p>
-
-            <div class="hero-actions">
-
-                <a href="#services" class="btn btn-gold">
-                    Discover Services
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section class="services" id="services">
-
-    <div class="section-label reveal">
-        What We Do
-    </div>
-
-    <h2 class="section-title reveal">
-        Signature <span>Services</span>
-    </h2>
-
-    <p class="section-text reveal">
-        Professional beauty treatments designed to help you look
-        confident, refreshed and effortlessly beautiful.
-    </p>
-
-
-    <div class="service-grid">
-
-        <div class="service-card reveal">
-            <span class="service-number">01</span>
-            <div class="service-icon">✂</div>
-            <h3>Haircuts</h3>
+        <div class="process-grid reveal">
+          <article class="process-step">
+            <div class="step-top">STEP 01 <span>↗</span></div>
+            <h3>Share Your Vision</h3>
             <p>
-                Professional haircuts tailored to your style,
-                face shape and personal preference.
+              Tell the team your city, gym size, approximate budget and
+              equipment requirements.
             </p>
-            <div class="service-glow"></div>
-        </div>
+          </article>
 
-        <div class="service-card reveal">
-            <span class="service-number">02</span>
-            <div class="service-icon">✦</div>
-            <h3>Hair Styling</h3>
+          <article class="process-step">
+            <div class="step-top">STEP 02 <span>↗</span></div>
+            <h3>Plan Your Setup</h3>
             <p>
-                Blow dry, styling and finishing for polished
-                everyday and occasion-ready looks.
+              Discuss suitable machinery, package options, finishes and
+              an itemised quotation.
             </p>
-            <div class="service-glow"></div>
-        </div>
+          </article>
 
-        <div class="service-card reveal">
-            <span class="service-number">03</span>
-            <div class="service-icon">◈</div>
-            <h3>Global Colouring</h3>
+          <article class="process-step">
+            <div class="step-top">STEP 03 <span>↗</span></div>
+            <h3>Confirm the Details</h3>
             <p>
-                Beautiful global hair colouring designed to
-                transform and refresh your look.
+              Verify availability, delivery timelines, installation scope,
+              payment terms and warranty before ordering.
             </p>
-            <div class="service-glow"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <span class="eyebrow">GOT QUESTIONS?</span>
+          <h2 class="section-title">GOOD TO<br><span>KNOW.</span></h2>
+          <p>
+            Have questions before planning your gym? Contact the team
+            for details specific to your requirements.
+          </p>
+          <a class="btn"
+            href="https://wa.me/919897229440?text=Hello%20R.M%20Fitness%2C%20I%20have%20some%20questions%20about%20your%20gym%20equipment."
+            target="_blank" rel="noopener">ASK ON WHATSAPP ↗</a>
         </div>
 
-        <div class="service-card reveal">
-            <span class="service-number">04</span>
-            <div class="service-icon">✧</div>
-            <h3>Highlights</h3>
-            <p>
-                Add dimension and character with professionally
-                selected hair highlights.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">05</span>
-            <div class="service-icon">〰</div>
-            <h3>Keratin</h3>
-            <p>
-                Keratin services for smoother, softer and more
-                manageable-looking hair.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">06</span>
-            <div class="service-icon">≈</div>
-            <h3>Straightening</h3>
-            <p>
-                Professional straightening services for a sleek
-                and refined appearance.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">07</span>
-            <div class="service-icon">❋</div>
-            <h3>Smoothening</h3>
-            <p>
-                Smoothening treatments for unruly and dry-looking
-                hair.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">08</span>
-            <div class="service-icon">♡</div>
-            <h3>Hair Relaxing</h3>
-            <p>
-                Hair relaxing services focused on smoother and
-                easier-to-manage hair.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">09</span>
-            <div class="service-icon">✿</div>
-            <h3>Facials</h3>
-            <p>
-                Personalized facial treatments for a refreshed
-                and glowing appearance.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">10</span>
-            <div class="service-icon">☼</div>
-            <h3>Skin Care</h3>
-            <p>
-                Beauty and skincare services designed around
-                individual skin needs.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">11</span>
-            <div class="service-icon">◉</div>
-            <h3>Eyebrows & Eyelashes</h3>
-            <p>
-                Eyebrow beautification and eyelash services
-                for a refined finish.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">12</span>
-            <div class="service-icon">❀</div>
-            <h3>Body Waxing</h3>
-            <p>
-                Professional body waxing services for smooth,
-                clean-looking skin.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">13</span>
-            <div class="service-icon">◇</div>
-            <h3>Acne Treatments</h3>
-            <p>
-                Beauty-focused acne treatments and personalized
-                skincare services.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">14</span>
-            <div class="service-icon">♢</div>
-            <h3>Shampoo & Conditioning</h3>
-            <p>
-                Professional hair cleansing and conditioning
-                treatments.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-        <div class="service-card reveal">
-            <span class="service-number">15</span>
-            <div class="service-icon">✦</div>
-            <h3>Bridal Services</h3>
-            <p>
-                Beauty services designed for brides and special
-                occasions.
-            </p>
-            <div class="service-glow"></div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FEATURE -->
-
-<section class="feature">
-
-    <div class="feature-content reveal">
-
-        <div class="section-label">
-            Hair Transformation
-        </div>
-
-        <h2>
-            Smooth.<br>
-            <span>Shine.</span><br>
-            Confidence.
-        </h2>
-
-        <p>
-            Keratin, straightening, relaxing and smoothening
-            services are available for unruly and dry-looking hair,
-            helping create a smoother and more polished appearance.
-        </p>
-
-        <div class="hero-actions">
-
-            <a href="tel:06290575304" class="btn btn-gold">
-                Enquire Now
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- STATS -->
-
-<section class="stats">
-
-    <div class="stats-grid">
-
-        <div class="stat reveal">
-            <strong>156+</strong>
-            <span>Reviews</span>
-        </div>
-
-        <div class="stat reveal">
-            <strong>4.0</strong>
-            <span>Customer Rating</span>
-        </div>
-
-        <div class="stat reveal">
-            <strong>15+</strong>
-            <span>Beauty Services</span>
-        </div>
-
-        <div class="stat reveal">
-            <strong>1</strong>
-            <span>Premium Destination</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- GALLERY -->
-
-<section class="gallery" id="gallery">
-
-    <div class="gallery-head">
-
-        <div>
-
-            <div class="section-label reveal">
-                Visual Experience
+        <div class="faq-list reveal">
+          <details>
+            <summary>Can I get a complete commercial gym setup?<span>+</span></summary>
+            <div class="faq-answer">
+              R.M Fitness offers commercial gym setup packages. Share your
+              city, approximate floor area, budget and training requirements
+              to discuss available options.
             </div>
+          </details>
 
-            <h2 class="section-title reveal">
-                Inside <span>Sunflower</span>
-            </h2>
+          <details>
+            <summary>Is pan-India delivery available?<span>+</span></summary>
+            <div class="faq-answer">
+              Pan-India delivery and installation are listed among the
+              services provided. Confirm delivery coverage, transport costs
+              and installation availability for your location.
+            </div>
+          </details>
 
+          <details>
+            <summary>Can I customise machine colours?<span>+</span></summary>
+            <div class="faq-answer">
+              Ask the R.M Fitness team about current frame colours, cushion
+              finishes, minimum order requirements and additional costs.
+            </div>
+          </details>
+
+          <details>
+            <summary>Are the package prices fixed?<span>+</span></summary>
+            <div class="faq-answer">
+              Prices on this demonstration website are indicative references.
+              Request the latest written quotation and confirm the equipment
+              list, taxes, delivery, installation and warranty.
+            </div>
+          </details>
+
+          <details>
+            <summary>How do I get a quotation?<span>+</span></summary>
+            <div class="faq-answer">
+              Call or WhatsApp the team. Sharing your city, floor area,
+              preferred machinery and estimated budget can help start the
+              discussion.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">LET'S BUILD SOMETHING STRONG</span>
+          <h2>READY.<span>SET. LIFT.</span></h2>
+          <p>
+            Looking for individual machines or planning a complete commercial
+            gym? Connect with R.M Fitness to discuss requirements and request
+            the latest product information.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-dark"
+              href="https://wa.me/919897229440?text=Hello%20R.M%20Fitness%2C%20I%20would%20like%20to%20get%20a%20quotation%20for%20gym%20equipment."
+              target="_blank" rel="noopener">WHATSAPP THE TEAM ↗</a>
+            <a class="btn btn-outline"
+              style="border-color:#0a0d0a;color:#0a0d0a"
+              href="tel:+919897229440">CALL NOW</a>
+          </div>
         </div>
 
-        <p class="section-text reveal">
-            Replace these images with the salon's actual photos
-            to create a completely personalized gallery.
-        </p>
-
-    </div>
-
-
-    <div class="gallery-grid">
-
-        <div class="gallery-item reveal">
-
-            <img
-            src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=90"
-            alt="Salon">
-
-            <div class="gallery-overlay">
-                <span>SALON EXPERIENCE</span>
+        <div class="contact-details reveal">
+          <div class="contact-detail">
+            <span class="detail-icon">☎</span>
+            <div>
+              <span class="detail-label">CALL OUR TEAM</span>
+              <a class="detail-value" href="tel:+919897229440">+91 98972 29440</a>
+              <a class="detail-value" href="tel:+918272039440">+91 82720 39440</a>
+              <a class="detail-value" href="tel:+917037609440">+91 70376 09440</a>
             </div>
+          </div>
 
+          <div class="contact-detail">
+            <span class="detail-icon">⌖</span>
+            <div>
+              <span class="detail-label">FACTORY OUTLET</span>
+              <span class="detail-value">
+                Bijli Bamba Bypass, near Jamia Residence,
+                Delhi Road, Meerut, Uttar Pradesh – 250002
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="detail-icon">◎</span>
+            <div>
+              <span class="detail-label">FOLLOW ON INSTAGRAM</span>
+              <a class="detail-value"
+                href="https://www.instagram.com/r_m_fitnees/"
+                target="_blank" rel="noopener">@r_m_fitnees ↗</a>
+            </div>
+          </div>
         </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-            src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=90"
-            alt="Hair styling">
-
-            <div class="gallery-overlay">
-                <span>HAIR STYLING</span>
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-            src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=90"
-            alt="Beauty">
-
-            <div class="gallery-overlay">
-                <span>BEAUTY</span>
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-            src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1400&q=90"
-            alt="Beauty treatment">
-
-            <div class="gallery-overlay">
-                <span>BEAUTY CARE</span>
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-            src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=90"
-            alt="Hair salon">
-
-            <div class="gallery-overlay">
-                <span>HAIR CARE</span>
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal">
-
-            <img
-            src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=90"
-            alt="Salon interior">
-
-            <div class="gallery-overlay">
-                <span>SUNFLOWER</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- BRIDAL -->
-
-<section class="bridal">
-
-    <div class="bridal-grid">
-
-        <div class="bridal-image reveal">
-
-            <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=90"
-            alt="Bridal beauty">
-
-        </div>
-
-        <div class="reveal">
-
-            <div class="section-label">
-                Bridal Beauty
-            </div>
-
-            <h2 class="section-title">
-                Your most<br>
-                <span>beautiful day.</span>
-            </h2>
-
-            <p class="section-text">
-                Get ready for your special occasion with professional
-                bridal beauty services designed to complement your
-                personal style.
-            </p>
-
-            <div class="bridal-list">
-
-                <div>
-                    <span>01</span>
-                    Bridal Beauty Services
-                </div>
-
-                <div>
-                    <span>02</span>
-                    Hair Styling
-                </div>
-
-                <div>
-                    <span>03</span>
-                    Skin & Facial Care
-                </div>
-
-                <div>
-                    <span>04</span>
-                    Occasion-Ready Finishing
-                </div>
-
-            </div>
-
-            <div class="hero-actions">
-
-                <a href="tel:06290575304" class="btn btn-gold">
-                    Call For Bridal Enquiry
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- REVIEWS -->
-
-<section class="reviews" id="reviews">
-
-    <div class="section-label reveal">
-        Client Experience
-    </div>
-
-    <h2 class="section-title reveal">
-        Loved by <span>Clients.</span>
-    </h2>
-
-    <div class="rating reveal">
-        ★ ★ ★ ★ ☆
-    </div>
-
-    <div class="rating-text reveal">
-        4.0 out of 5 · 156 Reviews
-    </div>
-
-    <div class="review-card reveal">
-
-        <div class="review-quote">
-            “Professional beauty services in the heart of
-            Park Street, with a wide range of hair and beauty
-            treatments under one roof.”
-        </div>
-
-        <div class="review-source">
-            SUNFLOWER HAIR & BEAUTY SALON
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- LOCATION -->
-
-<section class="location" id="contact">
-
-    <div class="location-grid">
-
-        <div>
-
-            <div class="section-label reveal">
-                Visit Sunflower
-            </div>
-
-            <h2 class="section-title reveal">
-                Come in.<br>
-                Leave <span>glowing.</span>
-            </h2>
-
-            <div class="location-card">
-
-                <div class="location-row reveal">
-
-                    <div class="location-icon">⌖</div>
-
-                    <div>
-
-                        <strong>Address</strong>
-
-                        <span>
-                            2, Anandilal Poddar Sarani,<br>
-                            Russel Street, Park Street area,<br>
-                            Kolkata, West Bengal 700071
-                        </span>
-
-                    </div>
-
-                </div>
-
-                <div class="location-row reveal">
-
-                    <div class="location-icon">☎</div>
-
-                    <div>
-
-                        <strong>Phone</strong>
-
-                        <span>
-                            062905 75304
-                        </span>
-
-                    </div>
-
-                </div>
-
-                <div class="location-row reveal">
-
-                    <div class="location-icon">◷</div>
-
-                    <div>
-
-                        <strong>Opening</strong>
-
-                        <span>
-                            Listed as opening from 10:30 AM
-                        </span>
-
-                    </div>
-
-                </div>
-
-                <div class="location-row reveal">
-
-                    <div class="location-icon">✦</div>
-
-                    <div>
-
-                        <strong>Services</strong>
-
-                        <span>
-                            Hair · Beauty · Skin Care · Bridal
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="hero-actions">
-
-                <a
-                href="tel:06290575304"
-                class="btn btn-gold">
-                    Call 062905 75304
-                </a>
-
-                <a
-                href="https://www.google.com/maps/search/?api=1&query=Sunflower+Hair+and+Beauty+Salon+2+Anandilal+Poddar+Sarani+Kolkata+700071"
-                target="_blank"
-                class="btn btn-outline">
-                    Get Directions
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="map reveal">
-
-            <div class="map-pin">
-
-                <div class="pin">⌖</div>
-
-                <strong>Sunflower</strong>
-
-                <span>Park Street · Kolkata</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-    <div class="section-label reveal">
-        Your Next Look
-    </div>
-
-    <h2 class="reveal">
-        Ready to feel<br>
-        <span>beautiful?</span>
-    </h2>
-
-    <p class="reveal">
-        Discover professional hair, beauty and skincare services
-        at Sunflower Hair & Beauty Salon, Park Street, Kolkata.
-    </p>
-
-    <div class="hero-actions" style="justify-content:center;">
-
-        <a href="tel:06290575304" class="btn btn-gold">
-            Book / Enquire Now
-        </a>
-
-        <a href="#services" class="btn btn-outline">
-            Explore Services
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div class="footer-top">
-
-        <div class="footer-brand">
-
-            <div class="logo">
-
-                <div class="logo-flower">✿</div>
-
-                <div class="logo-text">
-                    <div class="logo-main">SUNFLOWER</div>
-                    <div class="logo-sub">
-                        HAIR & BEAUTY SALON
-                    </div>
-                </div>
-
-            </div>
-
-            <p>
-                Professional hair and beauty salon offering
-                personalized beauty treatments in Park Street,
-                Kolkata.
-            </p>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <div class="footer-column">
-
-                <h4>Explore</h4>
-
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#gallery">Gallery</a>
-
-            </div>
-
-            <div class="footer-column">
-
-                <h4>Contact</h4>
-
-                <a href="tel:06290575304">
-                    062905 75304
-                </a>
-
-                <a href="#contact">
-                    Park Street, Kolkata
-                </a>
-
-                <a
-                href="https://www.google.com/maps/search/?api=1&query=Sunflower+Hair+and+Beauty+Salon+Kolkata"
-                target="_blank">
-                    Directions
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
+      </div>
+
+      <div class="map">
+        <iframe
+          title="R.M Fitness factory outlet location in Meerut"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Bijli%20Bamba%20Bypass%2C%20near%20Jamia%20Residence%2C%20Delhi%20Road%2C%20Meerut%2C%20Uttar%20Pradesh%20250002&output=embed">
+        </iframe>
+
+        <a class="map-label"
+          href="https://www.google.com/maps/search/?api=1&query=Bijli+Bamba+Bypass%2C+near+Jamia+Residence%2C+Delhi+Road%2C+Meerut%2C+Uttar+Pradesh+250002"
+          target="_blank" rel="noopener">OPEN IN GOOGLE MAPS ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-main">
+      <a class="brand" href="#home">
+        <span class="brand-symbol">RM</span>
         <span>
-            © 2026 Sunflower Hair & Beauty Salon.
-            All Rights Reserved.
+          <span class="brand-name">R.M FITNESS</span>
+          <span class="brand-caption">ENGINEERED TO PERFORM</span>
         </span>
+      </a>
 
-        <span>
-            PARK STREET · KOLKATA
-        </span>
+      <p>Commercial gym equipment · Meerut, India</p>
 
+      <div class="footer-links">
+        <a href="#equipment">Equipment</a>
+        <a href="#about">About</a>
+        <a href="#packages">Packages</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.instagram.com/r_m_fitnees/"
+          target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
     </div>
 
-</footer>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> R.M Fitness · Demonstration website</span>
+      <span>Product images are illustrative. Confirm actual products and prices with the company.</span>
+    </div>
+  </footer>
 
+  <!-- FLOATING WHATSAPP -->
+  <a class="whatsapp-float"
+    href="https://wa.me/919897229440?text=Hello%20R.M%20Fitness%2C%20I%20would%20like%20to%20enquire%20about%20gym%20equipment."
+    target="_blank" rel="noopener"
+    aria-label="Contact R.M Fitness on WhatsApp">
+    <svg viewBox="0 0 24 24" width="29" height="29" fill="currentColor" aria-hidden="true">
+      <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.3-1.7a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.4-8.5ZM12.1 21.8c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.3c0-5.5 4.5-10 10-10 2.7 0 5.2 1 7.1 2.9a9.9 9.9 0 0 1 2.9 7.1c0 5.5-4.5 10-10 10Zm5.5-7.5c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/>
+    </svg>
+  </a>
 
-<!-- FLOATING ACTIONS -->
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-<div class="floating-actions">
-
-    <a
-    href="tel:06290575304"
-    class="float-btn"
-    title="Call">
-        ☎
-    </a>
-
-    <a
-    href="https://www.google.com/maps/search/?api=1&query=Sunflower+Hair+and+Beauty+Salon+Kolkata"
-    target="_blank"
-    class="float-btn"
-    title="Directions">
-        ⌖
-    </a>
-
-</div>
-
-
-<script>
-
-/* =========================================================
-   LOADER
-========================================================= */
-
-window.addEventListener("load",()=>{
-
-    setTimeout(()=>{
-        document.getElementById("loader").classList.add("hide");
-    },700);
-
-});
-
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY > 50){
-        navbar.classList.add("scrolled");
-    }else{
-        navbar.classList.remove("scrolled");
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuToggle.textContent = "☰";
     }
 
-});
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-const menu = document.getElementById("menu");
-const navLinks = document.getElementById("navLinks");
-
-menu.addEventListener("click",()=>{
-
-    navLinks.classList.toggle("active");
-
-});
-
-document.querySelectorAll(".nav-links a").forEach(link=>{
-
-    link.addEventListener("click",()=>{
-        navLinks.classList.remove("active");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      document.body.classList.toggle("menu-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
     });
 
-});
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
 
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
+    });
 
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
+    // Automatically update the copyright year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-const observer = new IntersectionObserver(
+    // Reveal sections as they enter the viewport
+    const revealElements = document.querySelectorAll(".reveal");
 
-    entries=>{
-
-        entries.forEach(entry=>{
-
-            if(entry.isIntersecting){
-
-                entry.target.classList.add("visible");
-
-            }
-
+    if (
+      "IntersectionObserver" in window &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            currentObserver.unobserve(entry.target);
+          }
         });
+      }, { threshold: 0.12 });
 
-    },
-
-    {
-        threshold:.12
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
     }
-
-);
-
-document.querySelectorAll(".reveal").forEach(el=>{
-    observer.observe(el);
-});
-
-
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
-
-const glow = document.getElementById("cursorGlow");
-
-window.addEventListener("mousemove",(e)=>{
-
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-
-});
-
-
-/* =========================================================
-   3D SERVICE CARDS
-========================================================= */
-
-document.querySelectorAll(".service-card").forEach(card=>{
-
-    card.addEventListener("mousemove",(e)=>{
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX =
-            ((y-centerY)/centerY)*-4;
-
-        const rotateY =
-            ((x-centerX)/centerX)*4;
-
-        card.style.transform =
-            `translateY(-12px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)`;
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.transform =
-            "translateY(0) rotateX(0) rotateY(0)";
-
-    });
-
-});
-
-
-/* =========================================================
-   SMOOTH ANCHOR OFFSET
-========================================================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-
-    anchor.addEventListener("click",function(e){
-
-        const target =
-            document.querySelector(this.getAttribute("href"));
-
-        if(target){
-
-            e.preventDefault();
-
-            const offset = 70;
-
-            const position =
-                target.getBoundingClientRect().top
-                + window.pageYOffset
-                - offset;
-
-            window.scrollTo({
-                top:position,
-                behavior:"smooth"
-            });
-
-        }
-
-    });
-
-});
-
-
-/* =========================================================
-   PARALLAX HERO
-========================================================= */
-
-window.addEventListener("scroll",()=>{
-
-    const hero = document.querySelector(".hero");
-
-    if(window.scrollY < window.innerHeight){
-
-        hero.style.backgroundPositionY =
-            `${window.scrollY * .25}px`;
-
-    }
-
-});
-
-</script>
+  </script>
 
 </body>
 </html>
